@@ -1,9 +1,13 @@
+import 'package:expenstracker/widgets/user_transaction.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() => runApp(MyHomePage());
 
 class MyHomePage extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,20 +16,21 @@ class MyHomePage extends StatelessWidget {
           backgroundColor: Colors.orange,
           title: Text('Expense Tracker'),
         ),
-        body: Column(
-          children: <Widget>[
-            Card(
-              color: Colors.orange,
-              child: Container(
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Container(
                 width: double.infinity,
-                child: Text('Chart'),
+                child: Card(
+                  color: Colors.blue,
+                  child: Text('Chart'),
+                  elevation: 5,
+                ),
               ),
-              elevation: 5,
-            ),
-            Card(
-              child: Text('List of TX'),
-            )
-          ],
+             UserTransactions()
+            ],
+          ),
         ),
       ),
     );
